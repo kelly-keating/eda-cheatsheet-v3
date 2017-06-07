@@ -4,6 +4,7 @@ exports.up = function (knex, Promise) {
     table.increments('id').primary()
     table.text('question')
     table.text('description')
+    table.integer('topic_id')
   })
 }
 
