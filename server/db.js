@@ -10,7 +10,7 @@ function getTopic (topic, connection) {
 }
 
 function listCode (topic, connection) {
-  return connection('code').select('*', 'code.id as code_id')
+  return connection('code').select('*', 'code.id as id', 'code.description as description')
   	.join('topics', 'code.topic_id', '=', 'topics.id')
   	.where('topics.name', topic)
 }
@@ -21,20 +21,20 @@ function getCode (id, connection) {
   	.first()
 }
 
-function getUses (connection) {
-  return connection('uses')
+function getExamples (topic_id, connection) {
+  return connection('examples')
+    .where('examples.topic_id', topic_id)
 }
 
-function getUse (id, connection) {
-  return connection('uses')
-    .where('id', id)
-    .first()
+function getSections (id, connection) {
+  return connection('sections')
+    .where('example_id', id)
 }
 
-function getCodeFromQuestion (id, connection) {
-  return connection('code').select('*', 'code.id as code_id')
-    .join('useToCode', 'code.id','=','useToCode.code_id')
-    .where('useToCode.uses_id', id)
+function getCodeFromSection (id, connection) {
+  return connection('code').select('*', 'code.id as id')
+    .join('codeToSections', 'code.id','=','codeToSections.code_id')
+    .where('codeToSections.section_id', id)
 }
 
 module.exports = {
@@ -42,7 +42,7 @@ module.exports = {
   getTopic,
   listCode,
   getCode,
-  getUses,
-  getUse,
-  getCodeFromQuestion
+  getExamples,
+  getSections,
+  getCodeFromSection
 }

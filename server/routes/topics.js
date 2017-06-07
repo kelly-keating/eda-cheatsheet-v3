@@ -10,15 +10,15 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/:topic', (req, res) => {
-  db.getTopic(req.params.topic, req.app.get('knex'))
+router.get('/:name', (req, res) => {
+  db.getTopic(req.params.name, req.app.get('knex'))
     .then((result) => {
       res.json(result)
     })
 })
 
-router.get('/:topic/code', (req, res) => {
-  db.listCode(req.params.topic, req.app.get('knex'))
+router.get('/:name/code', (req, res) => {
+  db.listCode(req.params.name, req.app.get('knex'))
     .then((result) => {
       res.json(result)
     })

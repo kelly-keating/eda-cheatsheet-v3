@@ -4,7 +4,7 @@ var bodyParser = require('body-parser')
 const cors = require('cors')
 
 var topics = require('./routes/topics')
-var uses = require('./routes/uses')
+var examples = require('./routes/examples')
 
 const corsOptions = {
   origin: true,
@@ -20,6 +20,6 @@ server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
 
 server.use('/api/topics', topics)
-server.use('/api/uses', uses)
+server.use('/api/examples', examples)
 
 module.exports = server
