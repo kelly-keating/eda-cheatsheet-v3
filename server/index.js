@@ -4,7 +4,7 @@ var env = process.env.NODE_ENV || 'development'
 var knex = require('knex')
 var config = require('../knexfile')[env]
 
-server.set('db', knex(config))
+server.set('knex', knex(config))
 
 var PORT = process.env.PORT || 3000
 

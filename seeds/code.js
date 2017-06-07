@@ -33,5 +33,6 @@ exports.seed = function(knex, Promise) {
           {id: 88501, topic_id: 9905, text: 'React.render(<h1>Hello, world!</h1>)', description: 'Render draws the thing on the thing - sends the html to load into the view'},
           //  NPM
           {id: 88901, topic_id: 9909, text: 'ava', description: 'testy McTest test'}
-    })
+    ])
+  })
 }
