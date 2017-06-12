@@ -1,14 +1,15 @@
 import React from 'react'
+import {HashRouter as Router, Route} from 'react-router-dom'
 
-import Greetings from './Greetings'
 import Nav from './Nav'
 
 
 const App = () => (
-  <div className='app-container'>
-    <Greetings />
-    <Nav />
-  </div>
+  <Router>
+    <div className='app-container'>
+      <Nav />
+    </div>
+  </Router>
 )
 
 export default App
