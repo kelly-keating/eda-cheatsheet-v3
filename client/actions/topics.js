@@ -7,6 +7,13 @@ export const receiveTopics = (topics) => {
   }
 }
 
+export const receiveTopic = (topic) => {
+  return {
+    type: 'RECEIVE_A_TOPIC',
+    topic
+  }
+}
+
 export function getTopics () {
   return (dispatch) => {
     request
@@ -17,6 +24,20 @@ export function getTopics () {
           return
         }
         dispatch(receiveTopics(res.body))
+      })
+  }
+}
+
+export function getTopic (name) {
+  return (dispatch) => {
+    request
+      .get(`/api/topics/${name}`)
+      .end((err, res) => {
+        if (err) {
+          console.error(err.message)
+          return
+        }
+        dispatch(receiveTopic(res.body))
       })
   }
 }
