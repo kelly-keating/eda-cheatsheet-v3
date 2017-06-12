@@ -1,6 +1,7 @@
 import request from 'superagent'
 
 export const receiveCode = (code) => {
+  console.log(code);
   return {
     type: 'RECEIVE_CODE',
     code
