@@ -20,7 +20,6 @@ class Nav extends React.Component {
   }
   componentDidMount() {
     this.props.dispatch(getTopics())
-
   }
   componentWillReceiveProps(nextProps) {
     this.setState({topics: nextProps.topics})

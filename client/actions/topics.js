@@ -8,7 +8,6 @@ export const receiveTopics = (topics) => {
 }
 
 export const receiveTopic = (topic) => {
-  console.log('topic!')
   return {
     type: 'RECEIVE_A_TOPIC',
     topic

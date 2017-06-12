@@ -20,22 +20,21 @@ class Topic extends React.Component {
 
   componentDidMount () {
     this.setState({
-      topic: this.props.topics.filter((topic) => topic.alias === this.state.name)
+      topic: this.props.topics.find((topic) => topic.alias === this.state.name)
     })
     this.props.dispatch(listCode(this.state.name))
+    console.log('topic mounts', this.props.topics)
   }
 
   componentWillReceiveProps (nextProps) {
     if(nextProps.match.params.topic != this.state.name) {
       this.props.dispatch(listCode(nextProps.match.params.topic))
-      console.log("requesting code");
       this.setState({
         code: [],
         name: nextProps.match.params.topic,
         topic: nextProps.topics.find((topic) => topic.alias === nextProps.match.params.topic)
       })
     } else {
-      console.log("setting codee");
       this.setState({
         code: nextProps.code,
       })
@@ -54,7 +53,7 @@ class Topic extends React.Component {
   renderList () {
     return (
       this.state.code.map((code) => {
-         return <Code key={code.code_id} id={code.code_id} thisCode={code} />
+         return <Code key={code.id} id={code.id} thisCode={code} /> // id defined by code_id prev. is it necessary at all?
       })
     )
   }
@@ -62,7 +61,6 @@ class Topic extends React.Component {
   render () {
     return (
       <div>
-        {console.log('render ', this.props)}
         {this.renderTitle(this.state.topic)}
         {this.renderList()}
       </div>
