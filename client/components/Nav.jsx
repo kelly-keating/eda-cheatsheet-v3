@@ -11,12 +11,29 @@ const renderButton = (topic) => {
   )
 }
 
-const Nav = ({topics, dispatch}) => (
-  <div id='nav'>
-    {dispatch(getTopics())}
-    {topics.map(renderButton)}
-  </div>
-)
+class Nav extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      topics: props.topics
+    }
+  }
+  componentDidMount() {
+    this.props.dispatch(getTopics())
+
+  }
+  componentWillReceiveProps(nextProps) {
+    this.setState({topics: nextProps.topics})
+  }
+  render() {
+    return (
+      <div id='nav'>
+        {this.state.topics.map(renderButton)}
+      </div>
+    )
+  }
+
+}
 
 const mapStateToProps = (state) => {
   return {topics: state.topics}

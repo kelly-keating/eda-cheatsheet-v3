@@ -13,18 +13,33 @@ class Topic extends React.Component {
     this.state = {
       name: props.match.params.topic,
       topic: {},
-      code: '',
+      code: [],
       active: []
     }
   }
 
-  ComponentDidMount () {
-    this.props.dispatch(getTopic(this.state.name))
+  componentDidMount () {
+    this.setState({
+      topic: this.props.topics.filter((topic) => topic.alias === this.state.name)
+    })
     this.props.dispatch(listCode(this.state.name))
   }
 
-  ComponentWillReceiveProps () {
-
+  componentWillReceiveProps (nextProps) {
+    if(nextProps.match.params.topic != this.state.name) {
+      this.props.dispatch(listCode(nextProps.match.params.topic))
+      console.log("requesting code");
+      this.setState({
+        code: [],
+        name: nextProps.match.params.topic,
+        topic: nextProps.topics.find((topic) => topic.alias === nextProps.match.params.topic)
+      })
+    } else {
+      console.log("setting codee");
+      this.setState({
+        code: nextProps.code,
+      })
+    }
   }
 
   renderTitle (topic) {
@@ -39,7 +54,7 @@ class Topic extends React.Component {
   renderList () {
     return (
       this.state.code.map((code) => {
-         return <Code key={oneCode.code_id} id={oneCode.code_id} thisCode={oneCode} />
+         return <Code key={code.code_id} id={code.code_id} thisCode={code} />
       })
     )
   }
@@ -47,8 +62,9 @@ class Topic extends React.Component {
   render () {
     return (
       <div>
+        {console.log('render ', this.props)}
         {this.renderTitle(this.state.topic)}
-        {this.state.code && this.renderList()}
+        {this.renderList()}
       </div>
     )
   }
@@ -56,7 +72,7 @@ class Topic extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    topic: state.topic,
+    topics: state.topics,
     code: state.code
   }
 }

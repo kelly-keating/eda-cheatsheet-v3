@@ -3,6 +3,8 @@ function code (state = [], action) {
     case 'RECEIVE_CODE':
       console.log(action.code)
       return [...action.code]
+    case 'CLEAR_CODE':
+      return []
     default:
       return state
   }

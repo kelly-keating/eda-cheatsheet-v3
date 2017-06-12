@@ -1,7 +1,6 @@
 import request from 'superagent'
 
 export const receiveCode = (code) => {
-  console.log(code);
   return {
     type: 'RECEIVE_CODE',
     code
@@ -10,6 +9,7 @@ export const receiveCode = (code) => {
 
 export function listCode (topic) {
   return (dispatch) => {
+    dispatch({ type: 'CLEAR_CODE' })
     request
       .get(`/api/code/${topic}`)
       .end((err, res) => {

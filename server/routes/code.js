@@ -4,8 +4,10 @@ var router = express.Router()
 var db = require('../db')
 
 router.get('/:topic', (req, res) => {
+  console.log(req.params.topic);
   db.listCode(req.params.topic, req.app.get('knex'))
     .then((result) => {
+      console.log({result});
       res.json(result)
     })
 })

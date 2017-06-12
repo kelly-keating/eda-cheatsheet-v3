@@ -12,7 +12,7 @@ function getTopic (topic, connection) {
 function listCode (topic, connection) {
   return connection('code').select('*', 'code.id as id', 'code.description as description')
   	.join('topics', 'code.topic_id', '=', 'topics.id')
-  	.where('topics.name', topic)
+  	.where('topics.alias', topic)
 }
 
 function getCode (id, connection) {
