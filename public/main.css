@@ -1,0 +1,93 @@
+body {
+  background-color: #CDDAF5;
+  color: #CDDAF5;
+  font-family: Arial, sans-serif;
+}
+
+a, a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/*  OVERLAY  */
+
+#header {
+  position: fixed;
+  background-color: #294680;
+
+  top: 0vh;
+  left: 0vw;
+  width: 100vw;
+  height: 10vh;
+  z-index: 5;
+  text-align: center;
+}
+
+#headerLinks {
+  position: fixed;
+  right: 0vw;
+  top: 0vw;
+  height: 10vh;
+}
+
+#title {
+  font-size: 1.3em;
+  padding: 3vh;
+}
+
+.headerButt {
+  display: flex;
+  height: 10vh;
+  padding: 4vh 1.5vw;
+  text-align: center;
+  display: inline-block;
+  font-size: 0.7em;
+}
+
+#nav {
+  position: fixed;
+  top: 10vh;
+  left: 0vw;
+  width: 14vw;
+  height: 90vh;
+  z-index: 5;
+}
+
+.navButt {
+  background-color: #52658f;
+  color: #CDDAF5;
+	width: 10vw;
+	margin: 2vh;
+  padding: 2vh;
+  text-decoration: none;
+	text-align: center;
+  font-size: 0.7em;
+}
+
+
+/*  CONTENT  */
+
+#content {
+  color: #0C1D3F;
+	position: absolute;
+	margin-top: 20vh;
+  margin-left: 20vw;
+  margin-bottom: 20vh;
+	width: 60vw;
+}
+
+.codeButt {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  font-size: 1em;
+}
+
+.codeDescribe {
+  padding: 25px 32px;
+}
