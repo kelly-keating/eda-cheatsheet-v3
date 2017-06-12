@@ -7,8 +7,15 @@ class Code extends React.Component {
     super(props)
     this.state = {
       code: props.thisCode,
-      id: props.id
+      id: props.id,
+      isActive: false
     }
+  }
+
+  toggleActive () {
+    this.setState({
+      isActive: !this.state.isActive
+    })
   }
 
   renderDescrip (code) {
@@ -21,9 +28,9 @@ class Code extends React.Component {
     return (
       <div>
         <div className='codeSnippet'>
-          <button className='codeButt' onClick={() => console.log('click')}>{this.state.code.text}</button>
+          <button className='codeButt' onClick={() => this.toggleActive()}>{this.state.code.text}</button>
         </div>
-        {this.renderDescrip(this.state.code)}
+        {this.state.isActive && this.renderDescrip(this.state.code)}
       </div>
     )
   }
