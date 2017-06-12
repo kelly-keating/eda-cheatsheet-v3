@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { HashRouter as Router, Link } from 'react-router-dom'
 
-import {getGreetings} from '../actions/greetings'
 import {getTopics} from '../actions/topics'
 
 
