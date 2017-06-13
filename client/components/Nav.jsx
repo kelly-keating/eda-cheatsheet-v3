@@ -7,7 +7,11 @@ import {getTopics} from '../actions/topics'
 
 const renderButton = (topic) => {
   return (
-    <div className='navButt' key={topic.id} ><Link to={`/topic/${topic.alias}`} >{topic.name}</Link></div>
+    <Link to={`/topic/${topic.alias}`} >
+      <div className='navButt' key={topic.id} >
+        {topic.name}
+      </div>
+    </Link>
   )
 }
 
