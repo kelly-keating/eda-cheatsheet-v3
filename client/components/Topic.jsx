@@ -23,7 +23,6 @@ class Topic extends React.Component {
       topic: this.props.topics.find((topic) => topic.alias === this.state.name)
     })
     this.props.dispatch(listCode(this.state.name))
-    console.log('topic mounts', this.props.topics)
   }
 
   componentWillReceiveProps (nextProps) {

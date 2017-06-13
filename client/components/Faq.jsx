@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import {listExamples} from '../actions/examples'
 
@@ -8,8 +9,8 @@ class Faq extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      topics: this.props.topics,
-      uses: []
+      topics: [],
+      examples: []
     }
   }
 
@@ -19,7 +20,8 @@ class Faq extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     this.setState({
-      examples: this.props.examples
+      topics: this.props.topics,
+      examples: nextProps.examples
     })
   }
 
@@ -36,22 +38,17 @@ class Faq extends React.Component {
     }
   }
 
-  renderTopics () {
-    {console.log('props', this.props, 'state', this.state)}
-    this.props.topics.map((topic) => {
-      return (
-        <div>
-          <h3 key={topic.id}>{topic.name}</h3>
-          {this.renderQuestions(topic.id)}
-        </div>
-      )
-    })
-  }
-
   render () {
     return (
       <div>
-        {this.renderTopics()}
+        {this.state.topics.map((topic) => {
+          return (
+            <div>
+              <h3 key={topic.id}>{topic.name}</h3>
+              {this.renderQuestions(topic.id)}
+            </div>
+          )
+        })}
       </div>
     )
   }
