@@ -42,11 +42,13 @@ class Topic extends React.Component {
   }
 
   renderTitle (topic) {
-    return (
+    return topic ? (
       <div>
-        <h1>{this.state.name}</h1>
-        <h3>{topic ? topic.description : 'loading...'}</h3>
+        <h1>{topic.alias}</h1>
+        <h3>{topic.description}</h3>
       </div>
+    ) : (
+      <h1>loading...</h1>
     )
   }
 
