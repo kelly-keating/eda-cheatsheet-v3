@@ -20,7 +20,7 @@ exports.seed = function(knex, Promise) {
           {id: 88211, topic_id: 9902, text: 'git push origin my-branch', description: 'Sends the changes to github along with a log of the commits.'},
           // set upstream
           {id: 88212, topic_id: 9902, text: 'git fetch origin', description: 'Refreshes your branches from origin.'},
-          {id: 88213, topic_id: 9902, text: 'git branch -a', description: 'Finds all available branches (including from other people).'},
+          {id: 88213, topic_id: 9902, text: 'git branch -a', description: 'Finds all available branches (including from other people\'s branches from github).'},
           {id: 88214, topic_id: 9902, text: 'git pull', description:''},
           {id: 88215, topic_id: 9902, text: 'git pull origin my-branch', description:''},
           {id: 88216, topic_id: 9902, text: 'git log', description: 'Shows a log of commits made.'},
@@ -29,7 +29,12 @@ exports.seed = function(knex, Promise) {
           {id: 88219, topic_id: 9902, text: 'git stash', description:''},
           //  JS
           {id: 88301, topic_id: 9903, text: 'typeOf ______', description: 'Will return the primitive type (string, number, object, etc.) of whatever it is called on.'},
+          //filter
+          //map
           //  HEROKU
+          {id: 88401, topic_id: 9904, text: 'heroku apps', description: 'Shows a list of all youe apps currently in your Heroku account.'},
+          {id: 88401, topic_id: 9904, text: 'heroku create APP_NAME', description: 'Creates a new app on heroku. The name is optional.'},
+          {id: 88401, topic_id: 9904, text: 'heroku git:remote APP_NAME', description: 'Sets the git remote (called heroku) to your app.'},
           {id: 88401, topic_id: 9904, text: 'heroku rollback', description: 'Returns your heroku server to the previous state before you pushed.'},
           //  REACT
           {id: 88501, topic_id: 9905, text: 'React.render(<h1>Hello, world!</h1>)', description: 'Render draws the thing on the thing - sends the html to load into the view'},
