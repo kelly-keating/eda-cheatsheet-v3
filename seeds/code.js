@@ -33,15 +33,15 @@ exports.seed = function(knex, Promise) {
           //map
           //  HEROKU
           {id: 88401, topic_id: 9904, text: 'heroku apps', description: 'Shows a list of all youe apps currently in your Heroku account.'},
-          {id: 88401, topic_id: 9904, text: 'heroku create APP_NAME', description: 'Creates a new app on heroku. The name is optional.'},
-          {id: 88401, topic_id: 9904, text: 'heroku git:remote APP_NAME', description: 'Sets the git remote (called heroku) to your app.'},
-          {id: 88401, topic_id: 9904, text: 'heroku rollback', description: 'Returns your heroku server to the previous state before you pushed.'},
+          {id: 88402, topic_id: 9904, text: 'heroku create APP_NAME', description: 'Creates a new app on heroku. The name is optional.'},
+          {id: 88403, topic_id: 9904, text: 'heroku git:remote APP_NAME', description: 'Sets the git remote (called heroku) to your app.'},
+          {id: 88404, topic_id: 9904, text: 'heroku rollback', description: 'Returns your heroku server to the previous state before you pushed.'},
           //  REACT
           {id: 88501, topic_id: 9905, text: 'React.render(<h1>Hello, world!</h1>)', description: 'Render draws the thing on the thing - sends the html to load into the view'},
           //  NPM
           {id: 88901, topic_id: 9909, text: 'knex migrate:make MIGRATION_NAME', description: 'Creates a new migration.'},
-          {id: 88901, topic_id: 9909, text: 'knex migrate:latest', description: 'Runs all not yet migrated migrations to create your database tables.'},
-          {id: 88901, topic_id: 9909, text: 'knex seed:run', description: 'Fills your database table with information.'}
+          {id: 88902, topic_id: 9909, text: 'knex migrate:latest', description: 'Runs all not yet migrated migrations to create your database tables.'},
+          {id: 88903, topic_id: 9909, text: 'knex seed:run', description: 'Fills your database table with information.'}
     ])
   })
 }
