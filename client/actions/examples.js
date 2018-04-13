@@ -8,7 +8,6 @@ export const receiveExamples = (examples) => {
 }
 
 export const receiveExample = (example) => {
-    console.log(example);
   return {
     type: 'RECEIVE_A_EXAMPLE',
     example

@@ -1,11 +1,16 @@
 import {combineReducers} from 'redux'
 
 import topics from './topics'
+import topic from './topic'
 import code from './code'
 import examples from './examples'
+import example from './example'
+
 
 export default combineReducers({
   topics,
+  topic,
   code,
-  examples
+  examples,
+  example
 })
