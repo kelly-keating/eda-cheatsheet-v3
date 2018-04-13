@@ -7,6 +7,14 @@ export const receiveExamples = (examples) => {
   }
 }
 
+export const receiveExample = (example) => {
+    console.log(example);
+  return {
+    type: 'RECEIVE_A_EXAMPLE',
+    example
+  }
+}
+
 export function listExamples () {
   return (dispatch) => {
     dispatch({ type: 'CLEAR_EXAMPLES' })
@@ -18,6 +26,20 @@ export function listExamples () {
           return
         }
         dispatch(receiveExamples(res.body))
+      })
+  }
+}
+
+export function getOneExample (id) {
+  return (dispatch) => {
+    request
+      .get(`/api/examples/example/${id}`)
+      .end((err, res) => {
+        if (err) {
+          console.error(err.message)
+          return
+        }
+        dispatch(receiveExample(res.body))
       })
   }
 }

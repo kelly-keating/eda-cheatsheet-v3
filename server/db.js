@@ -25,6 +25,12 @@ function getAllExamples (connection) {
   return connection('examples')
 }
 
+function getOneExample (id, connection) {
+  return connection('examples')
+    .where('examples.id', id)
+    .first()
+}
+
 function getExamples (topic_id, connection) {
   return connection('examples')
     .where('examples.topic_id', topic_id)
@@ -47,6 +53,7 @@ module.exports = {
   listCode,
   getCode,
   getAllExamples,
+  getOneExample,
   getExamples,
   getSections,
   getCodeFromSection

@@ -10,6 +10,13 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/example/:id', (req, res) => {
+  db.getOneExample(req.params.id, req.app.get('knex'))
+    .then((result) => {
+      res.json(result)
+    })
+})
+
 router.get('/topic/:id', (req, res) => {
   db.getExamples(req.params.id, req.app.get('knex'))
     .then((result) => {

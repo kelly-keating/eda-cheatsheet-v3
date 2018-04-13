@@ -32,7 +32,7 @@ exports.seed = function(knex, Promise) {
           //filter
           //map
           //  HEROKU
-          {id: 88401, topic_id: 9904, text: 'heroku apps', description: 'Shows a list of all youe apps currently in your Heroku account.'},
+          {id: 88401, topic_id: 9904, text: 'heroku apps', description: 'Shows a list of all the apps currently in your Heroku account.'},
           {id: 88402, topic_id: 9904, text: 'heroku create APP_NAME', description: 'Creates a new app on heroku. The name is optional.'},
           {id: 88403, topic_id: 9904, text: 'heroku git:remote APP_NAME', description: 'Sets the git remote (called heroku) to your app.'},
           {id: 88404, topic_id: 9904, text: 'heroku rollback', description: 'Returns your heroku server to the previous state before you pushed.'},
