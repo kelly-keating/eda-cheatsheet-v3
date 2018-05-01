@@ -14,6 +14,13 @@ export const receiveExample = (example) => {
   }
 }
 
+export const receiveSections = (sections) => {
+  return {
+    type: 'RECEIVE_SECTIONS',
+    sections
+  }
+}
+
 export function listExamples () {
   return (dispatch) => {
     dispatch({ type: 'CLEAR_EXAMPLES' })
@@ -39,6 +46,15 @@ export function getOneExample (id) {
           return
         }
         dispatch(receiveExample(res.body))
+        request
+          .get(`api/examples/sections/${id}`)
+          .end((err, res) => {
+            if (err) {
+              console.error(err.message)
+              return
+            }
+            dispatch(receiveSections(res.body))
+          })
       })
   }
 }

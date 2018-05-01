@@ -5,6 +5,7 @@ import topic from './topic'
 import code from './code'
 import examples from './examples'
 import example from './example'
+import sections from './sections'
 
 
 export default combineReducers({
@@ -12,5 +13,6 @@ export default combineReducers({
   topic,
   code,
   examples,
-  example
+  example,
+  sections
 })

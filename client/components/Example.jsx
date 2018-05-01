@@ -9,9 +9,9 @@ class Example extends React.Component {
     super(props)
     this.state = {
       id: props.match.params.id,
-      example: {
-        description: "loading"
-      }
+      example: { description: "loading" },
+      sections : [],
+      code: []
     }
   }
 
@@ -21,14 +21,30 @@ class Example extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     this.setState({
-      example: nextProps.example
+      example: nextProps.example,
+      sections: nextProps.sections,
+      code: nextProps.code
     })
   }
 
-  render() {
+  renderSections (sections) {
+    return (
+      sections.map((section) => {
+        var code = this.state.code.find((section) => section.example)
+        return (
+          <div>
+            <p>{section.paragraph}</p>
+            <p>CODE GOES HERE</p>
+          </div>
+      )}
+    )
+  )}
+
+  render () {
     return (
       <div>
         {this.state.example.description}
+        {this.renderSections(this.state.sections)}
       </div>
     )
   }
@@ -37,7 +53,9 @@ class Example extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    example: state.example
+    example: state.example,
+    sections: state.sections,
+    code: state.code
   }
 }
 
