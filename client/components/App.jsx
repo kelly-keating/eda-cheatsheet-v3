@@ -6,6 +6,7 @@ import Nav from './Nav'
 import Topic from './Topic'
 import Faq from './Faq'
 import Example from './Example'
+import SubmitQuestion from './SubmitQuestion'
 
 
 const App = () => (
@@ -17,6 +18,7 @@ const App = () => (
         <Route path='/topic/:topic' component={Topic} />
         <Route exact path='/examples' component={Faq} />
         <Route path='/examples/:id' component={Example} />
+        <Route path='/submit' component={SubmitQuestion} />
       </div>
     </div>
   </Router>
