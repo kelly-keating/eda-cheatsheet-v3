@@ -1,5 +1,7 @@
 import React from 'react'
 
+import sendSlack from '../slackApi'
+
 class SubmitQuestion extends React.Component {
   constructor(props) {
     super(props)
@@ -12,21 +14,22 @@ class SubmitQuestion extends React.Component {
     this.setState({question: evt.target.value});
   }
 
-  handleSubmit(evt){
-    console.log(evt.target.value)
-    evt.preventDefault()
+  handleSubmit(){
+    sendSlack(this.state.question,(err, body) => {
+      if (err) {
+        console.log(err.message)
+      } else {
+        console.log(body)
+      }
+    })
   }
 
   render(){
     return (
       <div id='questionForm'>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Your question:
-            <input type="text" value={this.state.question} onChange={this.handleChange.bind(this)} />
-          </label>
-          <input type="submit" value="Click Me!" />
-        </form>
+        Your question:
+        <input type="text" value={this.state.question} onChange={this.handleChange.bind(this)} />
+        <input type="submit" value="Click Me!" onClick={this.handleSubmit.bind(this)} />
       </div>
     )
   }
