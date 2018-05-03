@@ -1,6 +1,6 @@
 body {
-  background-color: #CDDAF5;
-  color: #CDDAF5;
+  background-color: #F5F5F5;
+  color: #F5F5F5;
   font-family: Arial, sans-serif;
 }
 
@@ -14,7 +14,7 @@ a, a:visited {
 
 #header {
   position: fixed;
-  background-color: #294680;
+  background-color: #33333A;
 
   top: 0vh;
   left: 0vw;
@@ -55,8 +55,8 @@ a, a:visited {
 }
 
 .navButt {
-  background-color: #52658f;
-  color: #CDDAF5;
+  /* background-color: #A9BCD0; */
+  color: #A9BCD0;
 	width: 10vw;
 	margin: 2vh;
   padding: 2vh;
@@ -78,7 +78,7 @@ a, a:visited {
 }
 
 .codeButt {
-  background-color: #4CAF50; /* Green */
+  background-color: #58A4B0; /* Blue */
   color: white;
   border: none;
   padding: 15px 32px;

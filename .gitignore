@@ -4,3 +4,4 @@ npm-debug.log
 bundle*
 dev.sqlite3
 yarn-error.log
+secrets.js

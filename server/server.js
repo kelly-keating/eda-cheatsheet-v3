@@ -7,6 +7,8 @@ var topics = require('./routes/topics')
 var code = require('./routes/code')
 var examples = require('./routes/examples')
 
+var {SLACK_URL} = require('../secrets')
+
 const corsOptions = {
   origin: true,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -28,14 +30,14 @@ server.use('/api/examples', examples)
 
 server.post('/api/slack', (req, res) => {
   request
-    .post('https://hooks.slack.com/services/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')
+    .post(SLACK_URL)
     .set({'Content-type': 'application/json'})
     .send({ text: req.body.text })
     .end((err, res) => {
       if (err) {
         console.log({err});
       } else {
-        console.log({res});
+        console.log('ok!');
       }
     })
 })
