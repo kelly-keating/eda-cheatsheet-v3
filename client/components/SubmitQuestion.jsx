@@ -15,13 +15,7 @@ class SubmitQuestion extends React.Component {
   }
 
   handleSubmit(){
-    sendSlack(this.state.question,(err, body) => {
-      if (err) {
-        console.log(err.message)
-      } else {
-        console.log(body)
-      }
-    })
+    sendSlack(this.state.question)
   }
 
   render(){

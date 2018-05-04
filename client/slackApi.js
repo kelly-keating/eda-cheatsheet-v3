@@ -1,6 +1,6 @@
 var request = require('superagent')
 
-export default function sendSlack (text, callback) {
+export default function sendSlack (text) {
   // request
   //   .post('https://hooks.slack.com/services/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')
   //   .set({'Content-type': 'application/json'})
@@ -16,6 +16,10 @@ export default function sendSlack (text, callback) {
     .post('/api/slack')
     .send({text})
     .end((err, res) => {
-      console.log({err, res})
+      if (err) {
+        console.log(err.message)
+      } else {
+        console.log(res.body)
+      }
     })
 }
