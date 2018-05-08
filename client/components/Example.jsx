@@ -1,7 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import Paragraph from './Paragraph'
+
 import {getOneExample} from '../actions/examples'
+import {clearCode} from '../actions/code'
 
 
 class Example extends React.Component {
@@ -10,33 +13,29 @@ class Example extends React.Component {
     this.state = {
       id: props.match.params.id,
       example: { description: "loading" },
-      sections : [],
-      code: []
+      sections : []
     }
   }
 
   componentDidMount () {
     this.props.dispatch(getOneExample(this.state.id));
+    this.props.dispatch(clearCode());
   }
 
   componentWillReceiveProps (nextProps) {
     this.setState({
       example: nextProps.example,
-      sections: nextProps.sections,
-      code: nextProps.code
+      sections: nextProps.sections
     })
   }
 
   renderSections (sections) {
     return (
-      sections.map((section) => {
-        var code = this.state.code.find((section) => section.example)
-        return (
-          <div>
-            <p>{section.paragraph}</p>
-            <p>CODE GOES HERE</p>
-          </div>
-      )}
+      sections.map((section) => (
+        <div>
+          <Paragraph section={section} />
+        </div>
+      )
     )
   )}
 
@@ -54,8 +53,7 @@ class Example extends React.Component {
 const mapStateToProps = (state) => {
   return {
     example: state.example,
-    sections: state.sections,
-    code: state.code
+    sections: state.sections
   }
 }
 

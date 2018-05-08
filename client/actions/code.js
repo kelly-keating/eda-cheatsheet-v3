@@ -7,6 +7,19 @@ export const receiveCode = (code) => {
   }
 }
 
+export const clearCode = () => {
+  return {
+    type: 'CLEAR_CODE'
+  }
+}
+
+export const appendCode = (code) => {
+  return {
+    type: 'APPEND_CODE',
+    code
+  }
+}
+
 export function listCode (topic) {
   return (dispatch) => {
     dispatch({ type: 'CLEAR_CODE' })
@@ -18,6 +31,20 @@ export function listCode (topic) {
           return
         }
         dispatch(receiveCode(res.body))
+      })
+  }
+}
+
+export function getCodeForSections (id) {
+  return (dispatch) => {
+    request
+      .get(`/api/examples/code/${id}`)
+      .end((err, res) => {
+        if (err) {
+          console.error(err.message)
+          return
+        }
+        dispatch(appendCode(res.body))
       })
   }
 }

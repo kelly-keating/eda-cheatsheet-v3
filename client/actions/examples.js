@@ -37,6 +37,7 @@ export function listExamples () {
 }
 
 export function getOneExample (id) {
+
   return (dispatch) => {
     request
       .get(`/api/examples/example/${id}`)
@@ -53,8 +54,13 @@ export function getOneExample (id) {
               console.error(err.message)
               return
             }
+            getCodeForSectionPairs(res.body)
             dispatch(receiveSections(res.body))
           })
       })
   }
+}
+
+function getCodeForSectionPairs (sectionsArray) {
+    console.log(sectionsArray)
 }
