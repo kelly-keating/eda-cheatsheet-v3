@@ -37,7 +37,6 @@ export function listExamples () {
 }
 
 export function getOneExample (id) {
-
   return (dispatch) => {
     request
       .get(`/api/examples/example/${id}`)
@@ -62,5 +61,5 @@ export function getOneExample (id) {
 }
 
 function getCodeForSectionPairs (sectionsArray) {
-    console.log(sectionsArray)
+    console.log('action to be implemented on get example call to also get section code')
 }

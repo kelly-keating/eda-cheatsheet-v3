@@ -31,8 +31,8 @@ class Example extends React.Component {
 
   renderSections (sections) {
     return (
-      sections.map((section) => (
-        <div>
+      sections.map((section, i) => (
+        <div key={i}>
           <Paragraph section={section} />
         </div>
       )

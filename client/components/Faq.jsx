@@ -31,8 +31,8 @@ class Faq extends React.Component {
         return example.topic_id === topicId
       })
       return (
-        onTopic.map((example) => {
-          return <div><Link  to={`/examples/${example.id}`}>{example.question}</Link></div>
+        onTopic.map((example, i) => {
+          return <div key={i}><Link  to={`/examples/${example.id}`}>{example.question}</Link></div>
         })
       )
     }
@@ -41,9 +41,9 @@ class Faq extends React.Component {
   render () {
     return (
       <div>
-        {this.state.topics.map((topic) => {
+        {this.state.topics.map((topic, i) => {
           return (
-            <div>
+            <div key={i} >
               <h3 key={topic.id}>{topic.name}</h3>
               {this.renderQuestions(topic.id)}
             </div>

@@ -29,7 +29,7 @@ class Paragraph extends React.Component {
         <p>{this.section.paragraph}</p>
         {this.state.code.map((code) => {
           if(code.section_id == this.section.id){
-            return <p>{code.text}</p>
+            return <p key={code.id} >{code.text}</p>
           }
         })}
       </div>
