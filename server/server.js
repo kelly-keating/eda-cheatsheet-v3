@@ -6,6 +6,8 @@ const cors = require('cors')
 var topics = require('./routes/topics')
 var code = require('./routes/code')
 var examples = require('./routes/examples')
+var questions = require('./routes/questions')
+
 
 var {SLACK_URL} = require('../secrets')
 
@@ -27,6 +29,7 @@ server.use(express.static(path.join(__dirname, '../public')))
 server.use('/api/topics', topics)
 server.use('/api/code', code)
 server.use('/api/examples', examples)
+server.use('/api/questions', questions)
 
 server.post('/api/slack', (req, res) => {
   request

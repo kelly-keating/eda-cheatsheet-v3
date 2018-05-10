@@ -47,6 +47,10 @@ function getCodeFromSection (id, connection) {
     .where('codeToSections.section_id', id)
 }
 
+function getAllQuestions (connection) {
+  return connection('questions')
+}
+
 module.exports = {
   getTopics,
   getTopic,
@@ -56,5 +60,6 @@ module.exports = {
   getOneExample,
   getExamples,
   getSections,
-  getCodeFromSection
+  getCodeFromSection,
+  getAllQuestions
 }
