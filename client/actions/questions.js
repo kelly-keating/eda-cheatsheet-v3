@@ -7,6 +7,13 @@ export const receiveQuestions = (questions) => {
   }
 }
 
+export const updateQuestion = (question) => {
+  return {
+    type: 'UPDATE_QUESTION',
+    question
+  }
+}
+
 export function getAllQuestions () {
   return (dispatch) => {
     dispatch({ type: 'CLEAR_QUESTIONS' })
@@ -34,6 +41,27 @@ export function addQuestion (question) {
           return
         }
         dispatch(getAllQuestions())
+      })
+  }
+}
+
+export function updateRating (dir, question){
+  let newQ = {
+    id: question.id,
+    content: question.content,
+    up_vote: question.up_vote + (dir == 'up' ? 1 : 0),
+    down_vote: question.down_vote + (dir == 'down' ? 1 : 0)
+  }
+  return (dispatch) => {
+    request
+      .put(`/api/questions/one`)
+      .send(newQ)
+      .end((err, res) => {
+        if (err) {
+          console.error(err.message)
+          return
+        }
+        dispatch(updateQuestion(newQ))
       })
   }
 }

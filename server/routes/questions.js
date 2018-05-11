@@ -18,4 +18,11 @@ router.get('/all', (req, res) => {
     })
 })
 
+router.put('/one', (req, res) => {
+  db.updateOneQuestion(req.body, req.app.get('knex'))
+    .then((result) => {
+      res.json(result)
+    })
+})
+
 module.exports = router

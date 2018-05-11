@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {getAllQuestions} from '../actions/questions'
+import {getAllQuestions, updateRating} from '../actions/questions'
 
 class QuestionList extends React.Component {
   constructor(props){
@@ -24,7 +24,9 @@ class QuestionList extends React.Component {
   renderQuestions(question, i){
     return (
       <div key={i} className='question'>
-        <p>{question.content}   |  {question.up_vote - question.down_vote}</p>
+        {question.content} | {question.up_vote - question.down_vote}
+        <div onClick={() => this.props.dispatch(updateRating('up', question))}> + </div>
+        <div onClick={() => this.props.dispatch(updateRating('down', question))}> - </div>
       </div>
     )
   }
@@ -33,7 +35,7 @@ class QuestionList extends React.Component {
     return (
       <div id='questionList'>
         <h1>QUESTIONS!</h1>
-        {this.state.questions.map((question, i) => {
+        {this.state.questions.sort((a, b) => a.up-a.down).map((question, i) => {
           return this.renderQuestions(question, i)
         })}
       </div>

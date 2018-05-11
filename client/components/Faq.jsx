@@ -32,7 +32,7 @@ class Faq extends React.Component {
       })
       return (
         onTopic.map((example, i) => {
-          return <div key={i}><Link  to={`/examples/${example.id}`}>{example.question}</Link></div>
+          return <div key={i}><Link to={`/examples/${example.id}`}>{example.question}</Link></div>
         })
       )
     }

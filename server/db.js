@@ -56,6 +56,12 @@ function addQuestion (question, connection) {
     .insert(question)
 }
 
+function updateOneQuestion (question, connection) {
+  return connection('questions')
+    .update(question)
+    .where('questions.id', question.id)
+}
+
 module.exports = {
   getTopics,
   getTopic,
@@ -67,5 +73,6 @@ module.exports = {
   getSections,
   getCodeFromSection,
   getAllQuestions,
-  addQuestion
+  addQuestion,
+  updateOneQuestion
 }
