@@ -51,6 +51,11 @@ function getAllQuestions (connection) {
   return connection('questions')
 }
 
+function addQuestion (question, connection) {
+  return connection('questions')
+    .insert(question)
+}
+
 module.exports = {
   getTopics,
   getTopic,
@@ -61,5 +66,6 @@ module.exports = {
   getExamples,
   getSections,
   getCodeFromSection,
-  getAllQuestions
+  getAllQuestions,
+  addQuestion
 }

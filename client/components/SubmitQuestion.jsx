@@ -1,8 +1,10 @@
 import React from 'react'
-
-import sendSlack from '../slackApi'
+import {connect} from 'react-redux'
 
 import QuestionList from './QuestionList'
+
+import sendSlack from '../slackApi'
+import {addQuestion} from '../actions/questions'
 
 class SubmitQuestion extends React.Component {
   constructor(props) {
@@ -17,7 +19,8 @@ class SubmitQuestion extends React.Component {
   }
 
   handleSubmit(){
-    sendSlack(this.state.question)
+    // sendSlack(this.state.question)
+    this.props.dispatch(addQuestion(this.state.question))
   }
 
   render(){
@@ -32,4 +35,4 @@ class SubmitQuestion extends React.Component {
   }
 }
 
-export default SubmitQuestion
+export default connect()(SubmitQuestion)
